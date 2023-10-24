@@ -1,6 +1,4 @@
-//Точка входа
+import { createPhotos } from './create_photos.js';
+import { PHOTOS_COUNT } from './constants.js';
 
-import { createPhotoPostArray } from './data.js';
-import {MAX_PHOTO_POSTS} from './constanse.js';
-//Создаем массив обьектов с описанием фотографии
-console.log(createPhotoPostArray(MAX_PHOTO_POSTS));
+console.log(createPhotos(PHOTOS_COUNT));
