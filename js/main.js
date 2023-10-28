@@ -1,3 +1,3 @@
-import { createPhotos } from './create_photos.js';
+import { createPhotos } from './create-photos.js';
 
 console.log(createPhotos(25));
