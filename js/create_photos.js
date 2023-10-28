@@ -2,7 +2,6 @@ import { getRandomInteger, getUniqueRandomInteger } from './util.js';
 import {
   NAMES,
   COMMENTS,
-  PHOTOS_COUNT,
   DESCRIPTIONS,
   MIN_LIKES,
   MAX_LIKES,
@@ -12,7 +11,9 @@ import {
   MAX_COMMENTS,
 } from './constants.js';
 
-// let photoCount = 0;
+let photoCount = 0;
+let createPhotoId = null;
+let createImageId = null;
 
 const createCommentId = getUniqueRandomInteger(0, MAX_COMMENT_ID);
 
@@ -31,9 +32,6 @@ const createComments = (n) => {
   return arr;
 };
 
-const createPhotoId = getUniqueRandomInteger(1, PHOTOS_COUNT);
-const createImageId = getUniqueRandomInteger(1, PHOTOS_COUNT);
-
 const createPhoto = () => ({
   id: createPhotoId(),
   url: `photos/${createImageId()}.jpg`,
@@ -43,7 +41,9 @@ const createPhoto = () => ({
 });
 
 const createPhotos = (n) => {
-  // photoCount = n;
+  photoCount = n;
+  createPhotoId = getUniqueRandomInteger(1, photoCount);
+  createImageId = getUniqueRandomInteger(1, photoCount);
   const photos = [];
   for (let i = 0; i < n; i++) {
     photos.push(createPhoto());
