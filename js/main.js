@@ -1,4 +1,6 @@
-
 import { createPhotos } from './create-photos.js';
+import { createPhotoThumbnail } from './thumbnails.js';
 
-console.log(createPhotos(25));
+const photoArray = createPhotos(25);
+
+createPhotoThumbnail(photoArray);
