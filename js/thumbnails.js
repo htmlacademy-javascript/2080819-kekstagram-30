@@ -1,4 +1,4 @@
-const picturesList = document.querySelector('.pictures');
+// const picturesList = document.querySelector('.pictures');
 
 const thumbnailTemplate = document
   .querySelector('#picture')
@@ -12,8 +12,8 @@ const removeCards = () => {
   });
 };
 
-const createPhotoThumbnail = (photoArray) => {
-  photoArray.forEach(({ url, description, likes, comments }) => {
+const createPhotoThumbnail = (photoArray, container) => {
+  photoArray.forEach(({ url, description, likes, comments, id }) => {
     const photoElement = thumbnailTemplate.cloneNode(true);
 
     photoElement.querySelector('.picture__img').src = url;
@@ -21,11 +21,13 @@ const createPhotoThumbnail = (photoArray) => {
     photoElement.querySelector('.picture__likes').textContent = likes;
     photoElement.querySelector('.picture__comments').textContent =
       comments.length;
+    photoElement.dataset.photoElementId = id;
 
     fragmentPhotoThumbnails.appendChild(photoElement);
   });
   removeCards();
-  picturesList.appendChild(fragmentPhotoThumbnails);
+  container.appendChild(fragmentPhotoThumbnails);
+  // picturesList.appendChild(fragmentPhotoThumbnails);
 };
 
 export { createPhotoThumbnail };
