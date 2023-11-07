@@ -19,7 +19,7 @@ const createCommentId = getUniqueRandomInteger(0, MAX_COMMENT_ID);
 
 const createComment = () => ({
   id: createCommentId(),
-  avatar: `img/avatar-${getRandomInteger(0, MAX_COUNT_AVATARS)}.svg`,
+  avatar: `img/avatar-${getRandomInteger(1, MAX_COUNT_AVATARS)}.svg`,
   message: COMMENTS[getRandomInteger(0, COMMENTS.length - 1)],
   name: NAMES[getRandomInteger(0, NAMES.length - 1)],
 });
