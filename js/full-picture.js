@@ -1,5 +1,7 @@
 const COMMENTS_COUNT_TO_SHOW = 5;
 
+const bodyElement = document.querySelector('body');
+
 const bigPictureElement = document.querySelector('.big-picture');
 
 const commentsListElement =
@@ -52,15 +54,8 @@ const renderComments = () => {
   totalCommentCountElement.textContent = comments.length;
 };
 
-// const initCommentList = () => {
-//   commentCountElement.classList.add('hidden');
-//   commentsLoaderElement.classList.add('hidden');
-// };
-
 const onClickCommentsLoader = () => renderComments();
 
-// const bigPictureElement = document.querySelector('.big-picture');
-const bodyElement = document.querySelector('body');
 const closePictureButtonElement = bigPictureElement.querySelector(
   '.big-picture__cancel'
 );

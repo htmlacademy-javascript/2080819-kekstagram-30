@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
+
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Кекстаграм</title>
   </head>
@@ -56,6 +57,9 @@
               class="img-upload__form"
               id="upload-select-image"
               autocomplete="off"
+              method="post"
+              action="https://30.javascript.pages.academy/kekstagram"
+              enctype="multipart/form-data"
             >
               <!-- Изначальное состояние поля для загрузки изображения -->
               <fieldset class="img-upload__start">
@@ -464,7 +468,7 @@
         <p class="social__text">{{текст комментария}}</p>
       </li>
     </template>
-
+    <script src="vendor/pristine/pristine.min.js"></script>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
