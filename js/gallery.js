@@ -1,4 +1,4 @@
-import { createPhotoThumbnail } from './thumbnails';
+import { createPhotoThumbnail } from './thumbnails.js';
 import { showBigPicture } from './full-picture.js';
 
 const picturesList = document.querySelector('.pictures');
