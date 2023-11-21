@@ -19,7 +19,7 @@ const onSmallerButtonClick = () => {
 };
 
 const onBiggerButtonClick = () => {
-  scaleImage(Math.min(parseInt(scaleInput.value, 10) - SCALE_STEP, MAX_SCALE));
+  scaleImage(Math.min(parseInt(scaleInput.value, 10) + SCALE_STEP, MAX_SCALE));
 };
 
 const resetScale = () => scaleImage(DAFAULT_SCALE);

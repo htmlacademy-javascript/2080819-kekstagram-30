@@ -18,7 +18,7 @@ const filterEffects = {
     unit: '',
   },
 
-  [Effect.INVERT]: {
+  [Effect.MARVIN]: {
     style: 'invert',
     unit: '%',
   },
@@ -142,7 +142,7 @@ const setEffect = (effect) => {
   setImageStyle();
 };
 
-const reset = () => {
+const resetEffects = () => {
   setEffect(Effect.DEFAULT);
 };
 
@@ -155,6 +155,6 @@ const init = () => {
   effectsElement.addEventListener('change', onEffectChange);
 };
 
-createSlider({ min: 1, max: 100, step: 2 });
+init();
 
-export { init, reset };
+export { init, resetEffects };
