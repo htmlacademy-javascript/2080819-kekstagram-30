@@ -1,3 +1,22 @@
+const REMOVE_MESSAGE_TIMEOUT = 5000;
+
+const errorMassageTemplate = document
+  .querySelector('#data-error')
+  .content.querySelector('.data-error');
+
+const showErrorMassage = () => {
+  const errorElement = errorMassageTemplate.cloneNode(true);
+  document.body.append(errorElement);
+
+  setTimeout(() => {
+    errorElement.remove();
+  }, REMOVE_MESSAGE_TIMEOUT);
+};
+
+export { showErrorMassage };
+
+//далее временные функции
+
 const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
   const upper = Math.floor(Math.max(a, b));
