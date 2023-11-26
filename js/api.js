@@ -1,4 +1,4 @@
-const SERVER_URL = 'https://30.javascript.pages.academy/kekstagram';
+import { SERVER_URL } from './constants.js';
 
 const ServerRoute = {
   GET_DATA: '/data',
@@ -11,8 +11,8 @@ const HttpMethod = {
 };
 
 const ErrorText = {
-  [HttpMethod.GET]: '...',
-  [HttpMethod.POST]: '...',
+  [HttpMethod.GET]: 'Не удалось загрузить данные',
+  [HttpMethod.POST]: 'Не удалось загрузить данные',
 };
 
 const request = async (url, method = HttpMethod.GET, body = null) => {

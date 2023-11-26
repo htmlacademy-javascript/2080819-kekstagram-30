@@ -28,8 +28,8 @@ function onDocumentKeydown(evt) {
 
 function onBodyClick(evt) {
   if (
-    evt.target.closes('.succes__inner') ||
-    evt.target.closes('.error__inner')
+    evt.target.classList.contains('success__inner') ||
+    evt.target.classList.contains('error__inner')
   ) {
     return;
   }

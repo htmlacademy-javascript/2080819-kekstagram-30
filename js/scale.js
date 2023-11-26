@@ -1,7 +1,9 @@
-const SCALE_STEP = 25;
-const MIN_SCALE = 25;
-const MAX_SCALE = 100;
-const DAFAULT_SCALE = 100;
+import {
+  SCALE_STEP,
+  MIN_SCALE,
+  MAX_SCALE,
+  DAFAULT_SCALE,
+} from './constants.js';
 
 const modalElement = document.querySelector('.img-upload');
 const smallerButton = modalElement.querySelector('.scale__control--smaller');

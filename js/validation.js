@@ -1,9 +1,9 @@
 import {
   MAX_TAGS_COUNT,
   VALID_CHARACTERS,
-  errorText,
+  errorTexts,
   DESCRIPTION_MAX_LENGTH,
-  errorDescription,
+  ERROR_DESCRIPTION,
 } from './constants.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
@@ -16,7 +16,8 @@ const pristine = new Pristine(uploadForm, {
   errorTextClass: 'img-upload__field-wrapper__error',
 });
 
-const getHashtagsArray = (value) => value.trim().split(' ').filter(Boolean);
+const getHashtagsArray = (value) =>
+  value.trim().toLowerCase().split(' ').filter(Boolean);
 
 const validateHashtagSyntax = (value) =>
   getHashtagsArray(value).every((hashtag) => VALID_CHARACTERS.test(hashtag));
@@ -44,7 +45,7 @@ const validateDescription = (value) => value.length <= DESCRIPTION_MAX_LENGTH;
 pristine.addValidator(
   textDescription,
   validateDescription,
-  errorDescription,
+  ERROR_DESCRIPTION,
   1,
   true
 );
@@ -52,7 +53,7 @@ pristine.addValidator(
 pristine.addValidator(
   textTagsInput,
   validateHashtagSyntax,
-  errorText.WRONG_TAG,
+  errorTexts.WRONG_TAG,
   3,
   true
 );
@@ -60,7 +61,7 @@ pristine.addValidator(
 pristine.addValidator(
   textTagsInput,
   validateHashtagUniqueness,
-  errorText.NOT_UNIQUE,
+  errorTexts.NOT_UNIQUE,
   2,
   true
 );
@@ -68,7 +69,7 @@ pristine.addValidator(
 pristine.addValidator(
   textTagsInput,
   validateHashtagsNumber,
-  errorText.TO_MACH_TAGS,
+  errorTexts.TO_MACH_TAGS,
   1,
   true
 );

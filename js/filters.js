@@ -1,5 +1,7 @@
 import { renderGallery } from './gallery.js';
 import { debounce } from './util.js';
+import { MAX_RANDOM_COUNT } from './constants.js';
+import { getRandomIndex } from './util.js';
 
 const filterElement = document.querySelector('.img-filters');
 const filtersForm = document.querySelector('.img-filters__form');
@@ -7,15 +9,11 @@ const defaultButton = filtersForm.querySelector('#filter-default');
 const randomButton = filtersForm.querySelector('#filter-random');
 const discussedButton = filtersForm.querySelector('#filter-discussed');
 
-const MAX_RANDOM_COUNT = 10;
-
 const FilterEnum = {
   DEFAULT: 'default',
   RANDOM: 'random',
   DISCUSSED: 'discussed',
 };
-
-const getRandomIndex = (min, max) => Math.floor(Math.random() * (max - min));
 
 const filterHandlers = {
   [FilterEnum.DEFAULT]: (data) => data,
@@ -38,11 +36,7 @@ const filterHandlers = {
     ),
 };
 
-const repaint = (evt, filter, data) => {
-  const filteredData = filterHandlers[filter](data);
-  const pictures = document.querySelectorAll('.picture');
-  pictures.forEach((item) => item.remove());
-  renderGallery(filteredData);
+const setActiveButton = (evt) => {
   const currentActiveElement = filtersForm.querySelector(
     '.img-filters__button--active'
   );
@@ -50,20 +44,30 @@ const repaint = (evt, filter, data) => {
   evt.target.classList.add('img-filters__button--active');
 };
 
+const repaint = (filter, data) => {
+  const filteredData = filterHandlers[filter](data);
+  const pictures = document.querySelectorAll('.picture');
+  pictures.forEach((item) => item.remove());
+  renderGallery(filteredData);
+};
+
 const debouncedRepaint = debounce(repaint);
 
 const initFilter = (data) => {
   filterElement.classList.remove('img-filters--inactive');
   defaultButton.addEventListener('click', (evt) => {
-    debouncedRepaint(evt, FilterEnum.DEFAULT, data);
+    setActiveButton(evt);
+    debouncedRepaint(FilterEnum.DEFAULT, data);
   });
 
   randomButton.addEventListener('click', (evt) => {
-    debouncedRepaint(evt, FilterEnum.RANDOM, data);
+    setActiveButton(evt);
+    debouncedRepaint(FilterEnum.RANDOM, data);
   });
 
   discussedButton.addEventListener('click', (evt) => {
-    debouncedRepaint(evt, FilterEnum.DISCUSSED, data);
+    setActiveButton(evt);
+    debouncedRepaint(FilterEnum.DISCUSSED, data);
   });
 };
 

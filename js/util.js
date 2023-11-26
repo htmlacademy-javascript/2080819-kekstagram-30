@@ -1,4 +1,4 @@
-const REMOVE_MESSAGE_TIMEOUT = 5000;
+import { REMOVE_MESSAGE_TIMEOUT } from './constants.js';
 
 const errorMassageTemplate = document
   .querySelector('#data-error')
@@ -13,30 +13,7 @@ const showErrorMassage = () => {
   }, REMOVE_MESSAGE_TIMEOUT);
 };
 
-export { showErrorMassage };
-
-const getRandomInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
-
-function getUniqueRandomInteger(a, b) {
-  const previousValues = [];
-
-  return function () {
-    let currentValue = getRandomInteger(a, b);
-    if (previousValues.length >= b - a + 1) {
-      return null;
-    }
-    while (previousValues.includes(currentValue)) {
-      currentValue = getRandomInteger(a, b);
-    }
-    previousValues.push(currentValue);
-    return currentValue;
-  };
-}
+const getRandomIndex = (min, max) => Math.floor(Math.random() * (max - min));
 
 function debounce(callback, timeoutDelay = 500) {
   let timeoutId;
@@ -46,15 +23,4 @@ function debounce(callback, timeoutDelay = 500) {
   };
 }
 
-function throttle(callback, delayBetweenFrames) {
-  let lastTime = 0;
-  return (...rest) => {
-    const now = new Date();
-    if (now - lastTime >= delayBetweenFrames) {
-      callback.apply(this, rest);
-      lastTime = now;
-    }
-  };
-}
-
-export { getRandomInteger, getUniqueRandomInteger, debounce, throttle };
+export { showErrorMassage, getRandomIndex, debounce };
