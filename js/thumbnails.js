@@ -1,5 +1,3 @@
-// const picturesList = document.querySelector('.pictures');
-
 const thumbnailTemplate = document
   .querySelector('#picture')
   .content.querySelector('a');
@@ -27,7 +25,6 @@ const createPhotoThumbnail = (photoArray, container) => {
   });
   removeCards();
   container.appendChild(fragmentPhotoThumbnails);
-  // picturesList.appendChild(fragmentPhotoThumbnails);
 };
 
 export { createPhotoThumbnail };

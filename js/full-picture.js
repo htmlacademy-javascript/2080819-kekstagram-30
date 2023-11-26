@@ -1,4 +1,4 @@
-const COMMENTS_COUNT_TO_SHOW = 5;
+import { COMMENTS_COUNT_TO_SHOW } from './constants.js';
 
 const bodyElement = document.querySelector('body');
 const bigPictureElement = document.querySelector('.big-picture');

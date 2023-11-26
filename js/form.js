@@ -14,7 +14,7 @@ const textTagsInput = uploadForm.querySelector('.text__hashtags');
 const textDescription = uploadForm.querySelector('.text__description');
 const submitButton = uploadForm.querySelector('.img-upload__submit');
 const photoPreview = uploadForm.querySelector('.img-upload__preview img');
-const effectsPreviews = document.querySelectorAll('.effacts__preview');
+const effectsPreviews = document.querySelectorAll('.effects__preview');
 const fileField = uploadForm.querySelector('#upload-file');
 
 const SubmitButtonCaption = {
@@ -56,10 +56,10 @@ const isTextFileFocus = () =>
   document.activeElement === textTagsInput ||
   document.activeElement === textDescription;
 
-const irErrorMassageExist = () => Boolean(document.querySelector('.error'));
+const isErrorMassageExist = () => Boolean(document.querySelector('.error'));
 
 function onDocumentKeydown(evt) {
-  if (evt.key === 'Escape' && !isTextFileFocus() && !irErrorMassageExist) {
+  if (evt.key === 'Escape' && !isTextFileFocus() && !isErrorMassageExist()) {
     evt.preventDefault();
     hideModal();
   }

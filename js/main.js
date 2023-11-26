@@ -1,4 +1,3 @@
-// import { createPhotos } from './create-photos.js';
 import { renderGallery } from './gallery.js';
 import './form.js';
 import { showErrorMassage } from './util.js';
@@ -17,5 +16,3 @@ const bootstrap = async () => {
 
 bootstrap();
 
-// const photoArray = createPhotos(25);
-// renderGallery(photoArray);
