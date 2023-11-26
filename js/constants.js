@@ -1,7 +1,5 @@
 export const MAX_RANDOM_COUNT = 10;
-
 export const FILE_FORMATS = ['jpeg', 'jpg', 'png'];
-
 export const MAX_TAGS_COUNT = 5;
 export const VALID_CHARACTERS = /^#[a-zа-яё0-9]{1,19}$/i;
 export const errorTexts = {
@@ -11,13 +9,9 @@ export const errorTexts = {
 };
 export const DESCRIPTION_MAX_LENGTH = 140;
 export const ERROR_DESCRIPTION = `Длина комментария больше ${DESCRIPTION_MAX_LENGTH} символов`;
-
 export const REMOVE_MESSAGE_TIMEOUT = 5000;
-
 export const SERVER_URL = 'https://30.javascript.pages.academy/kekstagram';
-
 export const COMMENTS_COUNT_TO_SHOW = 5;
-
 export const SCALE_STEP = 25;
 export const MIN_SCALE = 25;
 export const MAX_SCALE = 100;
