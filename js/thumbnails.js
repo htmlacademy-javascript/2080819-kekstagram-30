@@ -10,8 +10,8 @@ const removeCards = () => {
   });
 };
 
-const createPhotoThumbnail = (photoArray, container) => {
-  photoArray.forEach(({ url, description, likes, comments, id }) => {
+const createPhotoThumbnail = (photos, container) => {
+  photos.forEach(({ url, description, likes, comments, id }) => {
     const photoElement = thumbnailTemplate.cloneNode(true);
 
     photoElement.querySelector('.picture__img').src = url;
